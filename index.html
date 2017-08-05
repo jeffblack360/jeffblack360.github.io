@@ -129,6 +129,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
         </div>
       </div>
 
+      <div class="w3-container w3-card-2 w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>My Location</h2>
+        <div id="googleMap" class="w3-sepia" style="width:100%;height:400px;"></div>
+      </div>
+
     <!-- End Right Column -->
     </div>
     
@@ -145,6 +150,28 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 </footer>
 
+<!-- Add Google Maps -->
+<script>
+function myMap()
+{
+    myCenter=new google.maps.LatLng(35.925064, -86.868889);
+
+    var mapOptions= {
+        center:myCenter,
+        zoom:12, scrollwheel: false, draggable: false,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+
+    var marker = new google.maps.Marker({
+        position: myCenter,
+    });
+
+    marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpsi4wqQGuvZLI2QJFJItqLFlZOvskUNA&callback=myMap"></script>
 </body>
 </html>
 
